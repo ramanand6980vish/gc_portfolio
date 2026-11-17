@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import "src/cssFiles/clientProjectPortfolio.css";
+import "../cssFiles/clientProjectPortfolio.css";
 
 const projects = [
   {
