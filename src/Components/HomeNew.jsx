@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import "../cssFiles/homenew.css";
  
 const projects = [
@@ -166,7 +168,7 @@ export default function HomeNew() {
                     <a href="#services">Services</a>
                     <a href="#projects">Projects</a>
                     <a href="#timeline">Experience</a>
-                    <a href="/portfolio">Project Portfolio</a>
+           <Link to="/portfolio">Project Portfolio</Link>
                     <a href="#contact" className="nav-contact">
                         Contact Us
                     </a>
