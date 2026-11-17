@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from "react";
 import "../cssFiles/clientProjectPortfolio.css";
+import logoImg from "../assets/logo.png";
+
 
 const projects = [
   {
@@ -180,7 +182,7 @@ export default function ClientProjectPortfolio() {
         <div className="portfolio-nav-inner">
           <div className="global-logo-wrapper">
                         <img
-                            src="../assets/logo.png"
+                            src={logoImg}
                             alt="Global Construction - Engineers & Contractors"
                             className="global-logo-image"
                         />
