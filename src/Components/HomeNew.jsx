@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../cssFiles/homenew.css";
-
+ 
 const projects = [
     {
         date: "Sep 1994",
