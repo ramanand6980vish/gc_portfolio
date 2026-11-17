@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "src/cssFiles/homeNew.css";
+import "src/cssFiles/homenew.css";
 
 const projects = [
     {
