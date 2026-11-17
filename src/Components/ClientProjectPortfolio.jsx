@@ -180,7 +180,7 @@ export default function ClientProjectPortfolio() {
         <div className="portfolio-nav-inner">
           <div className="global-logo-wrapper">
                         <img
-                            src="src/assets/logo.png"
+                            src="../assets/logo.png"
                             alt="Global Construction - Engineers & Contractors"
                             className="global-logo-image"
                         />
