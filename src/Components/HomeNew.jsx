@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import logoImg from "../assets/logo.png";
 import "../cssFiles/homenew.css";
  
 const projects = [
@@ -157,7 +157,7 @@ export default function HomeNew() {
 
                <div className="global-logo-wrapper">
                         <img
-                            src="../assets/logo.png"
+                            src={logoImg}
                             alt="Global Construction - Engineers & Contractors"
                             className="global-logo-image"
                         />
