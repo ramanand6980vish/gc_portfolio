@@ -359,6 +359,52 @@ body {
 }
 
 
+/* gc_video_ad */
+.company-ad-video {
+  display: block;
+  width: 100%;
+  height: auto !important;
+
+  /* Preserve original video dimensions */
+  aspect-ratio: auto !important;
+
+  max-width: 100%;
+  max-height: none;
+
+  object-fit: contain;
+  object-position: center;
+
+  background: #000;
+  border-radius: 12px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .company-video-section {
+    width: 100%;
+    padding: 35px 0;
+  }
+
+  .company-video-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .company-ad-video {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    max-height: none;
+    object-fit: contain;
+    border-radius: 0;
+  }
+}
+
+
+
+
+
 /* SERVICES */
 
 .service-grid {
@@ -1722,6 +1768,8 @@ body {
     background: #0878ad;
     color: #ffffff;
 }
+
+
 
 /* Responsive Navbar */
 @media (max-width: 768px) {
