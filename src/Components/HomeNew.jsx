@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import logoImg from "../assets/logo.png";
-import "../cssFiles/homenew.css";
- 
+import React, { useState, useEffect, useRef } from "react";
+import "../cssFiles/homeNew.css";
+
 const projects = [
     {
         date: "Sep 1994",
@@ -129,6 +127,39 @@ export default function HomeNew() {
         message: ""
     });
 
+
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        const video = videoRef.current;
+
+        if (!video) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        video.play().catch((error) => {
+                            console.log("Video autoplay prevented:", error);
+                        });
+                    } else {
+                        video.pause();
+                    }
+                });
+            },
+            {
+                threshold: 0.5,
+            }
+        );
+
+        observer.observe(video);
+
+        return () => {
+            observer.disconnect();
+            video.pause();
+        };
+    }, []);
+
     const [sent, setSent] = useState(false);
 
     const handleSubmit = (e) => {
@@ -155,12 +186,12 @@ export default function HomeNew() {
 
             <header className="gc-header">
 
-               <div className="global-logo-wrapper">
-                        <img
-                            src={logoImg}
-                            alt="Global Construction - Engineers & Contractors"
-                            className="global-logo-image"
-                        />
+                <div className="global-logo-wrapper">
+                    <img
+                        src="src/assets/logo.png"
+                        alt="Global Construction - Engineers & Contractors"
+                        className="global-logo-image"
+                    />
                 </div>
 
                 <nav className="gc-nav">
@@ -168,7 +199,7 @@ export default function HomeNew() {
                     <a href="#services">Services</a>
                     <a href="#projects">Projects</a>
                     <a href="#timeline">Experience</a>
-           <Link to="/portfolio">Project Portfolio</Link>
+                    <a href="/portfolio">Project Portfolio</a>
                     <a href="#contact" className="nav-contact">
                         Contact Us
                     </a>
@@ -393,7 +424,18 @@ export default function HomeNew() {
                 </div>
 
             </section>
-
+            <video
+                ref={videoRef}
+                className="company-ad-video"
+                src="./src/assets/gc_video_ad.mp4"
+                autoPlay
+                muted
+                playsInline
+                controls
+                preload="auto"
+            >
+                Your browser does not support HTML5 video.
+            </video>
 
 
             {/* OUR MANAGEMENT TEAM */}
