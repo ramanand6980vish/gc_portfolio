@@ -430,7 +430,7 @@ export default function HomeNew() {
            <video
                 ref={videoRef}
                 className="company-ad-video"
-                src="./src/assets/gc_video_ad.mp4"
+                src={companyVideo }
                 muted
                 playsInline
                 controls={false}
