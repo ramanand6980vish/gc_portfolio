@@ -431,7 +431,7 @@ export default function HomeNew() {
                 ref={videoRef}
                 className="company-ad-video"
                 src={companyVideo }
-                muted
+                
                 playsInline
                 controls={false}
                 disablePictureInPicture
