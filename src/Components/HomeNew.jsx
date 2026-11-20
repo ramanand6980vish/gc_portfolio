@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import companyVideo from "../assets/gc_video_ad.mp4";
 import "../cssFiles/homenew.css";
+import logoImg from "../assets/logo.png";
+
 
 const projects = [
     {
@@ -189,7 +191,7 @@ export default function HomeNew() {
 
                 <div className="global-logo-wrapper">
                     <img
-                        src="src/assets/logo.png"
+                        src={logoImg}
                         alt="Global Construction - Engineers & Contractors"
                         className="global-logo-image"
                     />
