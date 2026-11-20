@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import companyVideo from "./assets/gc_video_ad.mp4";
 import "../cssFiles/homenew.css";
 
 const projects = [
@@ -427,7 +428,7 @@ export default function HomeNew() {
             <video
                 ref={videoRef}
                 className="company-ad-video"
-                src="./src/assets/gc_video_ad.mp4"
+                src={companyVideo}
                 autoPlay
                 muted
                 playsInline
