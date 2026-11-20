@@ -425,15 +425,17 @@ export default function HomeNew() {
                 </div>
 
             </section>
-            <video
+           <video
                 ref={videoRef}
                 className="company-ad-video"
-                src={companyVideo}
-                autoPlay
+                src="./src/assets/gc_video_ad.mp4"
                 muted
                 playsInline
-                controls
-                preload="auto"
+                controls={false}
+                disablePictureInPicture
+                disableRemotePlayback
+                preload="metadata"
+                onContextMenu={(e) => e.preventDefault()}
             >
                 Your browser does not support HTML5 video.
             </video>
