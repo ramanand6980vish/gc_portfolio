@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import companyVideo from "./assets/gc_video_ad.mp4";
+import companyVideo from "../assets/gc_video_ad.mp4";
 import "../cssFiles/homenew.css";
 
 const projects = [
