@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../cssFiles/homenew.css";
+import adVideo from "./src/assets/gc_video_ad2.mp4";
 
 const projects = [
     {
@@ -181,32 +182,6 @@ export default function HomeNew() {
 
     return (
         <main className="gc-home">
-
-            {/* NAVBAR */}
-
-            {/* <header className="gc-header">
-
-                <div className="global-logo-wrapper">
-                    <img
-                        src="src/assets/logo.png"
-                        alt="Global Construction - Engineers & Contractors"
-                        className="global-logo-image"
-                    />
-                </div>
-
-                <nav className="gc-nav">
-                    <a href="#about">About</a>
-                    <a href="#home">Home</a>
-                    <a href="#services">Services</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#timeline">Experience</a>
-                    <a href="/portfolio">Project Portfolio</a>
-                    <a href="#contact" className="nav-contact">
-                        Contact Us
-                    </a>
-                </nav>
-
-            </header> */}
 
 
             {/* HERO SECTION */}
@@ -428,7 +403,7 @@ export default function HomeNew() {
             <video
                 ref={videoRef}
                 className="company-ad-video"
-                src="./src/assets/gc_video_ad2.mp4"
+                src={adVideo}
                 loop
                 playsInline
                 controls={false}
