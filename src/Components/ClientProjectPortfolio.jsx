@@ -1,7 +1,5 @@
 import React, { useMemo, useState } from "react";
 import "../cssFiles/clientProjectPortfolio.css";
-import logoImg from "../assets/logo.png";
-
 
 const projects = [
   {
@@ -177,23 +175,6 @@ export default function ClientProjectPortfolio() {
   return (
     <div className="portfolio-page">
 
-      {/* NAVBAR */}
-      <header className="portfolio-navbar">
-        <div className="portfolio-nav-inner">
-          <div className="global-logo-wrapper">
-                        <img
-                            src={logoImg}
-                            alt="Global Construction - Engineers & Contractors"
-                            className="global-logo-image"
-                        />
-                </div>
-
-          <a href="/" className="portfolio-back">
-            ← Back to Home
-          </a>
-        </div>
-      </header>
-
       {/* HERO */}
       <section className="portfolio-hero">
         <div className="portfolio-hero-content">
@@ -332,31 +313,6 @@ export default function ClientProjectPortfolio() {
         </div>
 
       </main>
-
-      {/* FOOTER */}
-      <footer className="portfolio-footer">
-        <div>
-          <strong>GLOBAL CONSTRUCTION</strong>
-          <p>
-            Bajrang Nagar Kashi More, Anpara, Sonebhadra (U.P),
-            Pin - 231225
-          </p>
-        </div>
-
-        <div className="portfolio-footer-contact">
-          <a href="mailto:Global.construction716@gmail.com">
-            Global.construction716@gmail.com
-          </a>
-
-          <a href="tel:+916201665195">
-            +91 6201665195
-          </a>
-        </div>
-
-        <p className="portfolio-copyright">
-          © {new Date().getFullYear()} Global Construction. All Rights Reserved.
-        </p>
-      </footer>
 
     </div>
   );
