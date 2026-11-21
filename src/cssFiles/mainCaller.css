@@ -1,0 +1,614 @@
+/* =================================
+   COMMON NAVBAR BUTTON STYLING
+================================= */
+
+.gc-nav button {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.gc-nav button:hover {
+    color: #00aeef;
+}
+
+.gc-nav button.active {
+    color: #00aeef;
+    font-weight: 700;
+}
+
+
+/* =================================
+   DESKTOP NAVBAR
+================================= */
+
+.gc-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.mobile-menu-btn {
+    display: none;
+}
+
+
+/* =================================
+   MOBILE NAVBAR
+================================= */
+
+@media screen and (max-width: 768px) {
+
+    .gc-header {
+        position: relative;
+        z-index: 9999;
+        overflow: visible;
+    }
+
+    .gc-nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        overflow: visible;
+    }
+
+    /* Three-line / close button */
+
+    .mobile-menu-btn {
+        display: block !important;
+        flex-shrink: 0;
+
+        background: transparent !important;
+        border: none !important;
+
+        color: #193582 !important;
+        font-size: 28px !important;
+
+        padding: 5px 10px !important;
+        margin: 0;
+
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    /* Menu is hidden initially */
+
+    .nav-links {
+        display: none !important;
+    }
+
+    /* Open menu horizontally beside the icon */
+
+    .nav-links.show-menu {
+        display: flex !important;
+        position: static;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+
+        width: auto;
+        height: auto;
+        max-height: none;
+
+        gap: 2px;
+        padding: 0;
+        margin: 0;
+
+        background: transparent;
+        border: none;
+        box-shadow: none;
+
+        overflow: visible;
+    }
+
+    /* Horizontal menu buttons */
+
+    .nav-links button {
+        flex-shrink: 0;
+        width: auto;
+
+        padding: 8px 7px !important;
+
+        background: transparent !important;
+        border: none;
+
+        color: #193582 !important;
+
+        font-size: 12px;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .nav-links button:hover,
+    .nav-links button.active {
+        color: #00aeef !important;
+        background: transparent !important;
+    }
+
+}
+
+
+/* =================================
+   DESKTOP RESTORE
+================================= */
+
+@media screen and (min-width: 769px) {
+
+    .mobile-menu-btn {
+        display: none !important;
+    }
+
+    .gc-nav {
+        justify-content: flex-end;
+    }
+
+    .nav-links {
+        display: flex !important;
+        position: static;
+
+        flex-direction: row;
+        align-items: center;
+        gap: 25px;
+
+        width: auto;
+        height: auto;
+        max-height: none;
+
+        padding: 0;
+        margin: 0;
+
+        background: transparent;
+        border: none;
+        box-shadow: none;
+
+        overflow: visible;
+    }
+
+}
+
+
+
+
+
+
+/* =========================================
+   GLOBAL CONSTRUCTION — PROFESSIONAL FOOTER
+========================================= */
+
+.gc-site-footer {
+    --footer-bg: #041d27;
+    --footer-bg-light: #073447;
+    --footer-text: #f4f8fa;
+    --footer-muted: #c5dbe3;
+    --footer-green: #75b94c;
+    --footer-green-hover: #8acb60;
+
+    width: 100%;
+    margin: 0;
+    padding: 62px 6% 24px;
+    box-sizing: border-box;
+
+    background: linear-gradient(
+        120deg,
+        var(--footer-bg) 0%,
+        var(--footer-bg-light) 100%
+    );
+
+    color: var(--footer-text);
+    font-family: inherit;
+}
+
+.gc-site-footer *,
+.gc-site-footer *::before,
+.gc-site-footer *::after {
+    box-sizing: border-box;
+}
+
+/* Main three-column layout */
+
+.gc-footer-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(150px, 0.65fr) minmax(0, 1fr);
+    gap: clamp(35px, 5vw, 80px);
+
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* Company branding */
+
+.gc-footer-company {
+    min-width: 0;
+}
+
+.gc-footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.gc-footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 62px;
+    height: 62px;
+    flex: 0 0 62px;
+
+    border: 2px solid var(--footer-green);
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.gc-footer-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.gc-footer-brand-text strong {
+    color: #ffffff;
+    font-size: clamp(17px, 1.5vw, 21px);
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: 0.3px;
+}
+
+.gc-footer-brand-text small {
+    color: var(--footer-muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.gc-footer-description {
+    max-width: 420px;
+    margin: 0;
+
+    color: #e5eef2;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* Column headings */
+
+.gc-footer-links h3,
+.gc-footer-contact h3 {
+    position: relative;
+
+    margin: 0 0 25px;
+    padding-bottom: 13px;
+
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.gc-footer-links h3::after,
+.gc-footer-contact h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 42px;
+    height: 3px;
+
+    border-radius: 5px;
+    background: var(--footer-green);
+}
+
+/* Quick links */
+
+.gc-footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.gc-footer-links a {
+    display: inline-block;
+    margin-bottom: 15px;
+
+    color: var(--footer-muted);
+    font-size: 15px;
+    line-height: 1.5;
+    text-decoration: none;
+
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.gc-footer-links a:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+/* Contact section */
+
+.gc-footer-contact {
+    min-width: 0;
+}
+
+.gc-footer-contact p {
+    max-width: 360px;
+    margin: 0 0 24px;
+
+    color: #e5eef2;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+/* Green CTA button */
+
+.gc-footer-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+
+    min-height: 50px;
+    padding: 13px 18px;
+
+    border: 1px solid var(--footer-green);
+    border-radius: 7px;
+
+    background: var(--footer-green);
+    color: #041d27;
+
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.gc-footer-contact-btn:hover {
+    background: var(--footer-green-hover);
+    border-color: var(--footer-green-hover);
+    color: #041d27;
+    transform: translateY(-2px);
+}
+
+.gc-footer-contact-btn span {
+    font-size: 22px;
+    line-height: 1;
+}
+
+/* Copyright bottom row */
+
+.gc-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    width: 100%;
+    max-width: 1400px;
+    margin: 48px auto 0;
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gc-footer-bottom p {
+    margin: 0;
+    color: var(--footer-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.gc-footer-back-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+
+    color: #e5eef2;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.gc-footer-back-top:hover {
+    color: #ffffff;
+}
+
+.gc-footer-back-top span {
+    color: var(--footer-green);
+    font-size: 21px;
+}
+
+/* Keyboard accessibility */
+
+.gc-site-footer a:focus-visible {
+    outline: 2px solid var(--footer-green-hover);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+    .gc-site-footer {
+        padding: 48px 5% 22px;
+    }
+
+    .gc-footer-main {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+        gap: 40px 45px;
+    }
+
+    .gc-footer-contact {
+        grid-column: 1 / -1;
+        max-width: 500px;
+    }
+
+    .gc-footer-contact p {
+        max-width: 100%;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+    .gc-site-footer {
+        padding: 38px 22px 20px;
+    }
+
+    .gc-footer-main {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .gc-footer-brand {
+        gap: 13px;
+        margin-bottom: 20px;
+    }
+
+    .gc-footer-logo {
+        width: 54px;
+        height: 54px;
+        flex-basis: 54px;
+        font-size: 20px;
+    }
+
+    .gc-footer-brand-text strong {
+        font-size: 17px;
+    }
+
+    .gc-footer-brand-text small {
+        font-size: 12px;
+    }
+
+    .gc-footer-description {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .gc-footer-links h3,
+    .gc-footer-contact h3 {
+        margin-bottom: 20px;
+        font-size: 19px;
+    }
+
+    .gc-footer-links a,
+    .gc-footer-contact p {
+        font-size: 14px;
+    }
+
+    .gc-footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 35px;
+        padding-top: 20px;
+    }
+
+    .gc-footer-bottom p {
+        font-size: 13px;
+    }
+}
+
+/* Very small mobile screens */
+
+@media (max-width: 360px) {
+    .gc-site-footer {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .gc-footer-brand-text strong {
+        font-size: 15px;
+    }
+
+    .gc-footer-brand-text small {
+        font-size: 11px;
+    }
+}
+
+.gc-footer-links button,
+.gc-footer-brand,
+.gc-footer-contact-btn,
+.gc-footer-back-top {
+    font: inherit;
+    cursor: pointer;
+}
+
+.gc-footer-links button,
+.gc-footer-brand,
+.gc-footer-back-top {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    text-align: left;
+}
+
+.gc-footer-links button {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #c5dbe3;
+    font-size: 15px;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.gc-footer-links button:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+.gc-footer-brand {
+    color: #ffffff;
+}
+
+.gc-footer-contact-btn,
+.gc-footer-back-top {
+    font-family: inherit;
+}
+
+.gc-footer-contact-btn {
+    border: 1px solid #75b94c;
+}
+
+.gc-footer-back-top {
+    color: #e5eef2;
+}
