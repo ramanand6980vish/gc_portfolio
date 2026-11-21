@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import companyVideo from "../assets/gc_video_ad2.mp4";
 import "../cssFiles/homenew.css";
-import logoImg from "../assets/logo.png";
-
 
 const projects = [
     {
@@ -187,11 +184,11 @@ export default function HomeNew() {
 
             {/* NAVBAR */}
 
-            <header className="gc-header">
+            {/* <header className="gc-header">
 
                 <div className="global-logo-wrapper">
                     <img
-                        src={logoImg}
+                        src="src/assets/logo.png"
                         alt="Global Construction - Engineers & Contractors"
                         className="global-logo-image"
                     />
@@ -199,6 +196,7 @@ export default function HomeNew() {
 
                 <nav className="gc-nav">
                     <a href="#about">About</a>
+                    <a href="#home">Home</a>
                     <a href="#services">Services</a>
                     <a href="#projects">Projects</a>
                     <a href="#timeline">Experience</a>
@@ -208,7 +206,7 @@ export default function HomeNew() {
                     </a>
                 </nav>
 
-            </header>
+            </header> */}
 
 
             {/* HERO SECTION */}
@@ -427,10 +425,10 @@ export default function HomeNew() {
                 </div>
 
             </section>
-           <video
+            <video
                 ref={videoRef}
                 className="company-ad-video"
-                src={companyVideo }
+                src="./src/assets/gc_video_ad2.mp4"
                 loop
                 playsInline
                 controls={false}
@@ -497,8 +495,21 @@ export default function HomeNew() {
                             <span className="management-role">IT Engineer</span>
                             <div className="management-divider"></div>
                             <ul>
-                                <li>B.Tech (CSE)</li>
-                                <li>IT Engineer</li>
+                                <li>B.Tech, Kolkata (CSE)</li>
+                                <li>Software Engineer</li>
+                                <li>Lead Engineer</li>
+                            </ul>
+                        </div>
+
+                        <div className="management-card">
+                            <div className="management-avatar">RV</div>
+                            <h3>Mr. Ramanand Vishwakarma</h3>
+                            <span className="management-role">IT Engineer</span>
+                            <div className="management-divider"></div>
+                            <ul>
+                                <li>MCA, Punjab (CSE)</li>
+                                <li>Software Engineer</li>
+                                <li>Full Stack Developer</li>
                             </ul>
                         </div>
                     </div>
@@ -875,9 +886,8 @@ export default function HomeNew() {
 
                     <div className="financial-heading">
                         <span className="portfolio-section-tag">
-                            BANKING INFORMATION
                         </span>
-                        <h2>Financial Details for Transaction</h2>
+                        <h2 style={{ color: 'var(--portfolio-primary)' }}>Financial Details for Transaction</h2>
                         <p>
                             Official banking details of M/s Global Construction.
                         </p>
@@ -1102,25 +1112,7 @@ export default function HomeNew() {
             </section>
 
 
-            {/* FOOTER */}
-
-            <footer className="gc-footer">
-
-                <a className="footer-brand" href="#home">
-                    GLOBAL CONSTRUCTION
-                </a>
-
-                <span>
-                    Engineering • Fabrication • Contracting
-                </span>
-
-                <span>
-                    © {new Date().getFullYear()} M/s Global Construction.
-                    All rights reserved.
-                </span>
-
-            </footer>
-
+          
         </main>
     );
 }
