@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../cssFiles/homenew.css";
-import adVideo from "./src/assets/gc_video_ad2.mp4";
+import adVideo from "../assets/gc_video_ad2.mp4";
 
 const projects = [
     {
