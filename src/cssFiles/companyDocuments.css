@@ -1,0 +1,895 @@
+
+/* =========================================================
+   GLOBAL CONSTRUCTION - COMPANY DOCUMENTS
+   Logo-matched Corporate Styling
+========================================================= */
+
+.company-documents {
+    --doc-primary: #073447;
+    --doc-primary-dark: #041d27;
+    --doc-accent: #75b94c;
+    --doc-accent-dark: #5e9e39;
+    --doc-teal: #0b566c;
+    --doc-cyan: #3d9eaf;
+    --doc-text: #263f49;
+    --doc-muted: #6b8088;
+    --doc-border: #dce7e9;
+    --doc-light: #f3f8f8;
+    --doc-white: #ffffff;
+
+    width: 100%;
+    max-width: 1280px;
+    margin: 45px auto;
+    padding: 0 25px;
+    box-sizing: border-box;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--doc-text);
+}
+
+
+/* =========================================================
+   DOCUMENT NAVIGATION
+========================================================= */
+
+.documents-navbar {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    padding: 8px;
+    margin-bottom: 30px;
+
+    background: #f1f6f7;
+    border: 1px solid var(--doc-border);
+    border-radius: 9px;
+
+    box-shadow: 0 3px 12px rgba(4, 29, 39, 0.045);
+}
+
+.documents-nav-button {
+    position: relative;
+    flex: 1 1 auto;
+
+    min-height: 52px;
+    padding: 13px 20px;
+
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: #536d76;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.documents-nav-button:hover {
+    background: #ffffff;
+    color: var(--doc-primary);
+}
+
+.documents-nav-button.active {
+    background: var(--doc-primary);
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(7, 52, 71, 0.18);
+}
+
+.documents-nav-button.active::after {
+    content: "";
+
+    position: absolute;
+    bottom: -1px;
+    left: 30%;
+
+    width: 40%;
+    height: 3px;
+
+    background: var(--doc-accent);
+    border-radius: 5px 5px 0 0;
+}
+
+
+/* =========================================================
+   MAIN DOCUMENT CONTAINER
+========================================================= */
+
+.documents-content {
+    position: relative;
+    width: 100%;
+
+    padding: 45px 50px;
+
+    background: var(--doc-white);
+    border: 1px solid var(--doc-border);
+    border-radius: 10px;
+
+    box-shadow:
+        0 5px 25px rgba(4, 29, 39, 0.045),
+        0 1px 3px rgba(4, 29, 39, 0.025);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   DOCUMENT HEADINGS
+========================================================= */
+
+.document-text h2 {
+    position: relative;
+
+    color: var(--doc-primary);
+
+    font-size: 25px;
+    font-weight: 750;
+    letter-spacing: 0.7px;
+    line-height: 1.5;
+    text-align: center;
+
+    margin: 0 0 38px;
+    padding-bottom: 19px;
+}
+
+.document-text h2::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    width: 65px;
+    height: 3px;
+
+    background: var(--doc-accent);
+
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.document-text h3 {
+    color: var(--doc-primary);
+
+    font-size: 18px;
+    font-weight: 700;
+
+    margin-top: 35px;
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   DOCUMENT PARAGRAPHS
+========================================================= */
+
+.document-text p {
+    color: var(--doc-text);
+
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.95;
+    text-align: justify;
+
+    margin: 0 0 19px;
+}
+
+.document-text .company-intro {
+    color: #3c5963;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2;
+
+    padding: 19px 23px;
+    margin-bottom: 27px;
+
+    background: #f2f7f7;
+    border-left: 4px solid var(--doc-accent);
+    border-radius: 0 6px 6px 0;
+}
+
+
+/* =========================================================
+   SECTION SUBHEADINGS
+========================================================= */
+
+.document-subheading {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--doc-primary);
+
+    font-size: 17px;
+    font-weight: 750;
+    letter-spacing: 0.5px;
+
+    padding-bottom: 13px;
+    margin: 35px 0 20px;
+
+    border-bottom: 1px solid var(--doc-border);
+}
+
+.document-subheading::before {
+    content: "";
+
+    width: 4px;
+    height: 20px;
+
+    margin-right: 11px;
+
+    background: var(--doc-accent);
+    border-radius: 4px;
+}
+
+
+/* =========================================================
+   NUMBERED LISTS
+========================================================= */
+
+.document-text ol {
+    counter-reset: document-counter;
+    list-style: none;
+
+    padding: 0;
+    margin: 28px 0;
+}
+
+.document-text ol li {
+    position: relative;
+    counter-increment: document-counter;
+
+    padding: 15px 18px 15px 62px;
+    margin-bottom: 12px;
+
+    background: #f7fafa;
+    border: 1px solid #e7eeee;
+    border-radius: 7px;
+
+    color: var(--doc-text);
+
+    font-size: 14.5px;
+    line-height: 1.85;
+    text-align: justify;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.document-text ol li::before {
+    content: counter(document-counter, decimal-leading-zero);
+
+    position: absolute;
+    top: 15px;
+    left: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    background: #e6f0f1;
+    color: var(--doc-primary);
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.document-text ol li:hover {
+    background: #ffffff;
+    border-color: #c8dadd;
+    transform: translateX(3px);
+}
+
+.document-text ol li strong {
+    color: var(--doc-primary);
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   COMPANY INFORMATION TABLE
+========================================================= */
+
+.company-info-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+
+    margin: 20px 0 30px;
+
+    border: 1px solid var(--doc-border);
+    border-radius: 8px;
+}
+
+.company-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.company-info-table td {
+    padding: 15px 19px;
+
+    border-bottom: 1px solid var(--doc-border);
+
+    line-height: 1.7;
+    color: var(--doc-text);
+}
+
+.company-info-table tr:last-child td {
+    border-bottom: none;
+}
+
+.company-info-table td:first-child {
+    width: 34%;
+
+    background: #f1f6f7;
+    color: var(--doc-primary);
+    font-weight: 650;
+
+    border-right: 1px solid var(--doc-border);
+}
+
+.company-info-table td:last-child {
+    background: #ffffff;
+    font-weight: 500;
+}
+
+.company-info-table tr:hover td {
+    background: #f5f9f9;
+}
+
+
+/* =========================================================
+   PROPRIETOR MESSAGE HIGHLIGHT
+========================================================= */
+
+.proprietor-highlight {
+    position: relative;
+
+    margin: 35px 0;
+    padding: 25px 30px 25px 34px;
+
+    background: linear-gradient(
+        110deg,
+        #edf5f5,
+        #f7fafa
+    );
+
+    border-left: 4px solid var(--doc-accent);
+    border-radius: 0 8px 8px 0;
+
+    color: var(--doc-primary);
+
+    font-size: 17px;
+    font-weight: 650;
+    line-height: 1.9;
+    font-style: italic;
+}
+
+
+/* =========================================================
+   DOCUMENT SIGNATURE
+========================================================= */
+
+.document-signature {
+    margin-top: 45px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--doc-border);
+    line-height: 1.7;
+}
+
+.document-signature p {
+    margin: 4px 0;
+    text-align: left;
+
+    color: #627a83;
+    font-size: 14px;
+}
+
+.document-signature strong {
+    display: block;
+
+    color: var(--doc-primary);
+
+    font-size: 15px;
+    font-weight: 750;
+    letter-spacing: 0.3px;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   PDF SECTION
+========================================================= */
+
+.document-pdf-section {
+    margin-top: 50px;
+    padding-top: 28px;
+
+    border-top: 1px solid var(--doc-border);
+}
+
+.document-pdf-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+    padding: 22px 25px;
+
+    background: #f2f7f7;
+    border: 1px solid var(--doc-border);
+    border-radius: 8px;
+}
+
+.document-pdf-header h3 {
+    color: var(--doc-primary);
+
+    font-size: 18px;
+    font-weight: 750;
+
+    margin: 0 0 7px;
+}
+
+.document-pdf-header p {
+    color: var(--doc-muted);
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   PDF ACTION BUTTONS
+========================================================= */
+
+.document-pdf-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+    flex-shrink: 0;
+}
+
+.document-view-button,
+.document-download-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 43px;
+    padding: 11px 21px;
+
+    border-radius: 5px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.document-view-button {
+    background: #ffffff;
+    border: 1px solid var(--doc-primary);
+    color: var(--doc-primary);
+}
+
+.document-view-button:hover {
+    background: var(--doc-primary);
+    color: #ffffff;
+
+    box-shadow: 0 4px 10px rgba(7, 52, 71, 0.16);
+    transform: translateY(-2px);
+}
+
+.document-download-button {
+    background: var(--doc-accent);
+    border: 1px solid var(--doc-accent);
+    color: #ffffff;
+}
+
+.document-download-button:hover {
+    background: var(--doc-accent-dark);
+    border-color: var(--doc-accent-dark);
+    color: #ffffff;
+
+    box-shadow: 0 4px 10px rgba(94, 158, 57, 0.2);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   PDF VIEWER
+========================================================= */
+
+.document-pdf-viewer {
+    width: 100%;
+    margin-top: 22px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+    border: 1px solid var(--doc-border);
+    border-radius: 8px;
+
+    box-shadow: 0 5px 20px rgba(4, 29, 39, 0.08);
+}
+
+
+/* PDF VIEWER HEADER */
+
+.document-viewer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 52px;
+    padding: 10px 20px;
+
+    background: var(--doc-primary-dark);
+    color: #ffffff;
+}
+
+.document-viewer-header h4 {
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 650;
+
+    margin: 0;
+}
+
+
+/* CLOSE BUTTON */
+
+.document-close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 35px;
+    height: 35px;
+    padding: 0;
+
+    border: none;
+    border-radius: 5px;
+
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.document-close-button:hover {
+    background: #c84c4c;
+    transform: rotate(90deg);
+}
+
+
+/* PDF IFRAME */
+
+.document-pdf-viewer iframe {
+    display: block;
+
+    width: 100%;
+    height: 700px;
+
+    border: none;
+    background: #f1f5f6;
+}
+
+
+/* =========================================================
+   PDF NOT AVAILABLE MESSAGE
+========================================================= */
+
+.document-pdf-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 20px;
+
+    background: #f3f8f8;
+    border: 1px dashed #bfd2d6;
+    border-radius: 8px;
+
+    text-align: center;
+}
+
+.document-pdf-placeholder p {
+    color: var(--doc-primary);
+
+    font-size: 15px;
+    font-weight: 650;
+
+    margin: 0 0 8px;
+}
+
+.document-pdf-placeholder span {
+    color: var(--doc-muted);
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TABLET RESPONSIVENESS
+========================================================= */
+
+@media (max-width: 992px) {
+    .company-documents {
+        padding: 0 18px;
+    }
+
+    .documents-content {
+        padding: 35px 30px;
+    }
+
+    .documents-nav-button {
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+
+    .document-pdf-header {
+        padding: 20px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+========================================================= */
+
+@media (max-width: 768px) {
+    .company-documents {
+        margin: 30px auto;
+        padding: 0 13px;
+    }
+
+    /* Navigation */
+
+    .documents-navbar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 7px;
+        padding: 7px;
+        margin-bottom: 20px;
+    }
+
+    .documents-nav-button {
+        width: 100%;
+        min-height: 48px;
+
+        padding: 10px 8px;
+
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .documents-nav-button:last-child:nth-child(odd) {
+        grid-column: span 2;
+    }
+
+    /* Content */
+
+    .documents-content {
+        padding: 27px 19px;
+        border-radius: 8px;
+    }
+
+    .document-text h2 {
+        font-size: 20px;
+        margin-bottom: 28px;
+    }
+
+    .document-text h3 {
+        font-size: 16px;
+    }
+
+    .document-text p {
+        font-size: 14px;
+        line-height: 1.85;
+        text-align: left;
+    }
+
+    .document-text .company-intro {
+        padding: 16px;
+        font-size: 14px;
+    }
+
+    /* Lists */
+
+    .document-text ol li {
+        padding: 13px 12px 13px 48px;
+
+        font-size: 13px;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+    .document-text ol li::before {
+        left: 11px;
+
+        width: 27px;
+        height: 27px;
+
+        font-size: 11px;
+    }
+
+    /* Table */
+
+    .company-info-table {
+        min-width: 470px;
+    }
+
+    .company-info-table td {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    /* Highlight */
+
+    .proprietor-highlight {
+        padding: 19px;
+
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    /* PDF Section */
+
+    .document-pdf-section {
+        margin-top: 35px;
+        padding-top: 22px;
+    }
+
+    .document-pdf-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 17px;
+        padding: 19px;
+    }
+
+    .document-pdf-actions {
+        width: 100%;
+    }
+
+    .document-view-button,
+    .document-download-button {
+        flex: 1;
+
+        padding: 11px 10px;
+        font-size: 12px;
+    }
+
+    /* Viewer */
+
+    .document-pdf-viewer iframe {
+        height: 550px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE DEVICES
+========================================================= */
+
+@media (max-width: 480px) {
+    .company-documents {
+        padding: 0 10px;
+    }
+
+    .documents-content {
+        padding: 23px 14px;
+    }
+
+    .documents-nav-button {
+        font-size: 11px;
+        padding: 9px 5px;
+    }
+
+    .document-text h2 {
+        font-size: 18px;
+        letter-spacing: 0.3px;
+    }
+
+    .document-text p {
+        font-size: 13.5px;
+    }
+
+    .document-text ol li {
+        font-size: 12.5px;
+    }
+
+    .document-pdf-header h3 {
+        font-size: 16px;
+    }
+
+    .document-pdf-header p {
+        font-size: 12px;
+    }
+
+    .document-pdf-actions {
+        flex-direction: column;
+    }
+
+    .document-view-button,
+    .document-download-button {
+        width: 100%;
+        min-height: 43px;
+    }
+
+    .document-pdf-viewer iframe {
+        height: 450px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.documents-nav-button:focus-visible,
+.document-view-button:focus-visible,
+.document-download-button:focus-visible,
+.document-close-button:focus-visible {
+    outline: 3px solid rgba(117, 185, 76, 0.45);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .company-documents *,
+    .company-documents *::before,
+    .company-documents *::after {
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
