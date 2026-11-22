@@ -1,11 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../cssFiles/homenew.css";
 import adVideo from "../assets/gc_video_ad2.mp4";
+
+// team member import
 import manojPhoto from "../assets/team_member/manoj.png";
 import santoshPhoto from "../assets/team_member/santosh.png";
 import arvindPhoto from "../assets/team_member/arvind.png";
 import premPhoto from "../assets/team_member/prem.png";
 import ramanandPhoto from "../assets/team_member/ramanand.png";
+
+// logo import
+import adityaBirlaLogo from "../assets/client_logos/adityabirla_logo.png";
+import larsenToubroLogo from "../assets/client_logos/larsen_logo.png";
+import adaniLogo from "../assets/client_logos/adani_logo.png";
+import gammonLogo from "../assets/client_logos/gammon_logo.png";
+import hindalcoLogo from "../assets/client_logos/hindalco_logo.png";
+import hsclLogo from "../assets/client_logos/hscl_logo.png";
+import ultratechLogo from "../assets/client_logos/ultratech_logo.jpeg";
+import macmetLogo from "../assets/client_logos/macmet_logo.png";
+import relianceLogo from "../assets/client_logos/reliance_logo.png";
+import theIndureLogo from "../assets/client_logos/indure_logo.png";
 
 const projects = [
     {
@@ -104,16 +118,16 @@ const services = [
 ];
 
 const clients = [
-    "ADITYA BIRLA",
-    "LARSEN & TOUBRO",
-    "ADANI",
-    "GAMMON",
-    "HINDALCO",
-    "HSCL",
-    "ULTRATECH",
-    "MACMET",
-    "RELIANCE",
-    "THE INDURE"
+    { name: "ADITYA BIRLA", logo: adityaBirlaLogo },
+    { name: "LARSEN & TOUBRO", logo: larsenToubroLogo },
+    { name: "ADANI", logo: adaniLogo },
+    { name: "GAMMON", logo: gammonLogo },
+    { name: "HINDALCO", logo: hindalcoLogo },
+    { name: "HSCL", logo: hsclLogo },
+    { name: "ULTRATECH", logo: ultratechLogo },
+    { name: "MACMET", logo: macmetLogo },
+    { name: "RELIANCE", logo: relianceLogo },
+    { name: "THE INDURE", logo: theIndureLogo }
 ];
 
 function SectionTitle({ children, light = false }) {
@@ -752,30 +766,27 @@ useEffect(() => {
             </section>
 
 
-            {/* CLIENTS */}
+          {/* CLIENTS */}
+<section className="section soft-section">
+    <SectionTitle>
+        Clients We Proudly Serve
+    </SectionTitle>
 
-            <section className="section soft-section">
-
-                <SectionTitle>
-                    Clients We Proudly Serve
-                </SectionTitle>
-
-                <div className="client-grid">
-
-                    {clients.map((client, i) => (
-
-                        <div
-                            className={`client-logo client-${i}`}
-                            key={client}
-                        >
-                            <span>{client}</span>
-                        </div>
-
-                    ))}
-
-                </div>
-
-            </section>
+    <div className="client-grid">
+        {clients.map((client, i) => (
+            <div
+                className={`client-logo client-${i}`}
+                key={client.name}
+            >
+                <img
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    loading="lazy"
+                />
+            </div>
+        ))}
+    </div>
+</section>
 
 
             {/* CERTIFICATIONS */}
