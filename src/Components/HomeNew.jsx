@@ -427,16 +427,36 @@ useEffect(() => {
         Your browser does not support HTML5 video.
     </video>
 
-    <button
-        type="button"
-        className="company-ad-mute-btn"
-        onClick={toggleMute}
-        aria-label={isMuted ? "Unmute video" : "Mute video"}
-        title={isMuted ? "Unmute video" : "Mute video"}
-    >
-        {isMuted ? "🔇" : "🔊"}
-        <span>{isMuted ? "Unmute" : "Mute"}</span>
-    </button>
+   <button
+    type="button"
+    className="company-ad-mute-btn"
+    onClick={toggleMute}
+    aria-label={isMuted ? "Unmute video" : "Mute video"}
+    title={isMuted ? "Unmute video" : "Mute video"}
+>
+    {isMuted ? (
+        // Speaker with cross
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+        >
+            <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+            <path d="m17 9 5 6m0-6-5 6" />
+        </svg>
+    ) : (
+        // Speaker with sound waves
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+        >
+            <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+            <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+            <path d="M19 5a10 10 0 0 1 0 14" />
+        </svg>
+    )}
+</button>
 </div>
 
 
