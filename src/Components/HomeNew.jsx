@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../cssFiles/homenew.css";
 import adVideo from "../assets/gc_video_ad2.mp4";
+import manojPhoto from "../assets/team_member/manoj.png";
+import santoshPhoto from "../assets/team_member/santosh.png";
+import arvindPhoto from "../assets/team_member/arvind.png";
+import premPhoto from "../assets/team_member/prem.png";
+import ramanandPhoto from "../assets/team_member/ramanand.png";
 
 const projects = [
     {
@@ -460,81 +465,95 @@ useEffect(() => {
 </div>
 
 
-            {/* OUR MANAGEMENT TEAM */}
-            <section className="management-section" id="management">
-                <div className="section-container">
-                    <div className="section-heading">
-                        <span className="section-tag">THE PEOPLE BEHIND OUR WORK</span>
-                        <h2>Our Management Team</h2>
-                        <p>
-                            Our experienced management team brings together technical
-                            expertise, engineering knowledge and leadership to deliver
-                            quality construction solutions.
-                        </p>
-                    </div>
+           {/* OUR MANAGEMENT TEAM */}
+<section className="management-section" id="management">
+    <div className="section-container">
+        <div className="section-heading">
+            <span className="section-tag">THE PEOPLE BEHIND OUR WORK</span>
+            <h2>Our Management Team</h2>
+            <p>
+                Our experienced management team brings together technical
+                expertise, engineering knowledge and leadership to deliver
+                quality construction solutions.
+            </p>
+        </div>
 
-                    <div className="management-grid">
-                        <div className="management-card">
-                            <div className="management-avatar">MV</div>
-                            <h3>Mr. Manoj Vishwakarma</h3>
-                            <span className="management-role">Sales and Marketing Manager</span>
-                            <div className="management-divider"></div>
-                            <ul>
-                                <li>B.Tech (Mechanical)</li>
-                                <li>MBA</li>
-                                <li>Sales and Marketing Manager</li>
-                            </ul>
-                        </div>
-
-                        <div className="management-card">
-                            <div className="management-avatar">SV</div>
-                            <h3>Mr. Santosh Vishwakarma</h3>
-                            <span className="management-role">Mechanical Engineer</span>
-                            <div className="management-divider"></div>
-                            <ul>
-                                <li>B.Tech (Mechanical)</li>
-                                <li>Mechanical Engineer</li>
-                            </ul>
-                        </div>
-
-                        <div className="management-card">
-                            <div className="management-avatar">AV</div>
-                            <h3>Mr. Arvind Vishwakarma</h3>
-                            <span className="management-role">Mechanical Engineer</span>
-                            <div className="management-divider"></div>
-                            <ul>
-                                <li>Diploma (Production)</li>
-                                <li>Mechanical Engineer</li>
-                            </ul>
-                        </div>
-
-                        <div className="management-card">
-                            <div className="management-avatar">PS</div>
-                            <h3>Mr. Prem Sagar</h3>
-                            <span className="management-role">IT Engineer</span>
-                            <div className="management-divider"></div>
-                            <ul>
-                                <li>B.Tech, Kolkata (CSE)</li>
-                                <li>Software Engineer</li>
-                                <li>Lead Engineer</li>
-                            </ul>
-                        </div>
-
-                        <div className="management-card">
-                            <div className="management-avatar">RV</div>
-                            <h3>Mr. Ramanand Vishwakarma</h3>
-                            <span className="management-role">IT Engineer</span>
-                            <div className="management-divider"></div>
-                            <ul>
-                                <li>MCA, Punjab (CSE)</li>
-                                <li>Software Engineer</li>
-                                <li>Full Stack Developer</li>
-                            </ul>
-                        </div>
-                    </div>
+        <div className="management-grid">
+            <div className="management-card">
+                <div className="management-avatar">
+                    <img src={manojPhoto}
+                        alt="Mr. Manoj Vishwakarma" />
                 </div>
-            </section>
+                <h3>Mr. Manoj Vishwakarma</h3>
+                <span className="management-role">Sales and Marketing Manager</span>
+                <div className="management-divider"></div>
+                <ul>
+                    <li>B.Tech (Mechanical)</li>
+                    <li>MBA</li>
+                    <li>Sales and Marketing Manager</li>
+                </ul>
+            </div>
 
+            <div className="management-card">
+                <div className="management-avatar">
+                    <img src={santoshPhoto}
+                        alt="Mr. Santosh Vishwakarma" />
+                </div>
+                <h3>Mr. Santosh Vishwakarma</h3>
+                <span className="management-role">Mechanical Engineer</span>
+                <div className="management-divider"></div>
+                <ul>
+                    <li>B.Tech (Mechanical)</li>
+                    <li>Mechanical Engineer</li>
+                </ul>
+            </div>
+
+            <div className="management-card">
+                <div className="management-avatar">
+                    <img src={arvindPhoto}
+                        alt="Mr. Arvind Vishwakarma" />
+                </div>
+                <h3>Mr. Arvind Vishwakarma</h3>
+                <span className="management-role">Mechanical Engineer</span>
+                <div className="management-divider"></div>
+                <ul>
+                    <li>Diploma (Production)</li>
+                    <li>Mechanical Engineer</li>
+                </ul>
+            </div>
+
+            <div className="management-card">
+                <div className="management-avatar">
+                    <img src={premPhoto}
+                        alt="Mr. Prem Sagar" />
+                </div>
+                <h3>Mr. Prem Sagar</h3>
+                <span className="management-role">IT Engineer</span>
+                <div className="management-divider"></div>
+                <ul>
+                    <li>B.Tech, Kolkata (CSE)</li>
+                    <li>Software Engineer</li>
+                    <li>Lead Engineer</li>
+                </ul>
+            </div>
+
+            <div className="management-card">
+                <div className="management-avatar">
+                    <img src={ramanandPhoto}
+                        alt="Mr. Ramanand Vishwakarma" />
+                </div>
+                <h3>Mr. Ramanand Vishwakarma</h3>
+                <span className="management-role">IT Engineer</span>
+                <div className="management-divider"></div>
+                <ul>
+                    <li>MCA, Punjab (CSE)</li>
+                    <li>Software Engineer</li>
+                    <li>Full Stack Developer</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
             {/* COMMITMENT TO SAFETY & EXCELLENCE */}
             <section className="safety-section" id="safety">
