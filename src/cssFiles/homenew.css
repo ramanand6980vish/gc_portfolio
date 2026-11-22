@@ -1257,6 +1257,65 @@ body {
 }
 
 
+
+/* CONTACT SECTION — MOBILE FIX */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 60px 16px;
+        overflow-x: hidden;
+    }
+
+    .contact-inner {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+        box-sizing: border-box;
+    }
+
+    .contact-copy,
+    .contact-form {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-copy h2 {
+        font-size: clamp(28px, 7vw, 36px);
+        line-height: 1.2;
+    }
+
+    .contact-details {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 48px 14px;
+    }
+
+    .contact-details > div {
+        min-width: 0;
+    }
+
+    .contact-details p {
+        overflow-wrap: anywhere;
+    }
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
 /* =========================================
    ESSENTIAL COMPANY INFORMATION
 ========================================= */
