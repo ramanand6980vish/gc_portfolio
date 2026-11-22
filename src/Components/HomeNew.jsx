@@ -129,38 +129,48 @@ export default function HomeNew() {
     });
 
 
-    const videoRef = useRef(null);
+ const videoRef = useRef(null);
+const [isMuted, setIsMuted] = useState(true);
 
-    useEffect(() => {
-        const video = videoRef.current;
+const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
 
-        if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+};
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        video.play().catch((error) => {
-                            console.log("Video autoplay prevented:", error);
-                        });
-                    } else {
-                        video.pause();
-                    }
-                });
-            },
-            {
-                threshold: 0.5,
-            }
-        );
+useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
 
-        observer.observe(video);
+    // Start muted so browsers can allow autoplay
+    video.muted = true;
 
-        return () => {
-            observer.disconnect();
-            video.pause();
-        };
-    }, []);
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    video.play().catch((error) => {
+                        if (error.name !== "NotAllowedError") {
+                            console.error("Video playback failed:", error);
+                        }
+                    });
+                } else {
+                    video.pause();
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
 
+    observer.observe(video);
+
+    return () => {
+        observer.disconnect();
+        video.pause();
+    };
+}, []);
     const [sent, setSent] = useState(false);
 
     const handleSubmit = (e) => {
@@ -400,20 +410,34 @@ export default function HomeNew() {
                 </div>
 
             </section>
-            <video
-                ref={videoRef}
-                className="company-ad-video"
-                src={adVideo}
-                loop
-                playsInline
-                controls={false}
-                disablePictureInPicture
-                disableRemotePlayback
-                preload="metadata"
-                onContextMenu={(e) => e.preventDefault()}
-            >
-                Your browser does not support HTML5 video.
-            </video>
+           <div className="company-ad-video-wrapper">
+    <video
+        ref={videoRef}
+        className="company-ad-video"
+        src={adVideo}
+        loop
+        muted={isMuted}
+        playsInline
+        controls={false}
+        disablePictureInPicture
+        disableRemotePlayback
+        preload="metadata"
+        onContextMenu={(e) => e.preventDefault()}
+    >
+        Your browser does not support HTML5 video.
+    </video>
+
+    <button
+        type="button"
+        className="company-ad-mute-btn"
+        onClick={toggleMute}
+        aria-label={isMuted ? "Unmute video" : "Mute video"}
+        title={isMuted ? "Unmute video" : "Mute video"}
+    >
+        {isMuted ? "🔇" : "🔊"}
+        <span>{isMuted ? "Unmute" : "Mute"}</span>
+    </button>
+</div>
 
 
             {/* OUR MANAGEMENT TEAM */}
