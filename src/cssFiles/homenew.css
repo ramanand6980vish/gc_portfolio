@@ -596,7 +596,78 @@ body {
   margin: 0;
 }
 
+.company-ad-video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #041d27;
+}
 
+.company-ad-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Mute / unmute button overlay */
+.company-ad-mute-btn {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 42px;
+    padding: 10px 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+
+    background: rgba(4, 29, 39, 0.88);
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.company-ad-mute-btn:hover {
+    background: #073447;
+    border-color: #75b94c;
+    transform: translateY(-1px);
+}
+
+.company-ad-mute-btn:focus-visible {
+    outline: 2px solid #8acb60;
+    outline-offset: 3px;
+}
+
+.company-ad-mute-btn span {
+    line-height: 1;
+}
+
+@media (max-width: 600px) {
+    .company-ad-mute-btn {
+        right: 12px;
+        bottom: 12px;
+        min-height: 38px;
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+}
 /* =========================================
    PROJECT TIMELINE
 ========================================= */
