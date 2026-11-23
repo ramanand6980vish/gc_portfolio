@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import HomeNew from "./HomeNew";
 import ClientProjectPortfolio from "./ClientProjectPortfolio";
@@ -55,6 +55,51 @@ export default function MainCaller() {
         return () => window.clearTimeout(timer);
     }, [currentPage, pendingScroll]);
 
+
+
+    //for navbar scroll hide
+
+    const [showNavbar, setShowNavbar] = useState(true);
+
+    useEffect(() => {
+        const mobileQuery = window.matchMedia("(max-width: 768px)");
+        let previousScrollY = window.scrollY;
+
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // Navbar page ke top par hamesha visible rahe
+            if (currentScrollY <= 10) {
+                setShowNavbar(true);
+                previousScrollY = currentScrollY;
+                return;
+            }
+
+            // Mobile par hi scroll direction ke hisaab se navbar toggle karo
+            if (mobileQuery.matches) {
+                const difference = currentScrollY - previousScrollY;
+
+                if (Math.abs(difference) > 5) {
+                    // Down = hide, Up = show
+                    setShowNavbar(difference < 0);
+                    previousScrollY = currentScrollY;
+                }
+            } else {
+                setShowNavbar(true);
+                previousScrollY = currentScrollY;
+            }
+        };
+
+        setShowNavbar(true);
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+
+
     // Shared navigation for both navbar and footer
     const navigateTo = (page, selector = null) => {
         setMenuOpen(false);
@@ -100,7 +145,8 @@ export default function MainCaller() {
         <div className="gc-main-page">
 
             {/* PERSISTENT HEADER */}
-            <header className="gc-header">
+            {/* <header className="gc-header"> */}
+            <header className={`gc-header ${showNavbar ? "navbar-visible" : "navbar-hidden"}`}>
                 <div className="global-logo-wrapper">
                     <img
                         src={logo}
@@ -108,19 +154,9 @@ export default function MainCaller() {
                         className="global-logo-image"
                     />
                 </div>
-
                 {/* NAVIGATION */}
                 <nav className="gc-nav">
-                    <button
-                        type="button"
-                        className="mobile-menu-btn"
-                        onClick={() => setMenuOpen(prev => !prev)}
-                        aria-label={menuOpen ? "Close menu" : "Open menu"}
-                    >
-                        {menuOpen ? "✕" : "☰"}
-                    </button>
-
-                    <div className={`nav-links ${menuOpen ? "show-menu" : ""}`}>
+                    <div className="nav-links">
                         <button
                             type="button"
                             onClick={goHome}
@@ -153,7 +189,10 @@ export default function MainCaller() {
                         </button>
                     </div>
                 </nav>
+
+
             </header>
+
 
             {/* DYNAMIC CONTENT */}
             <div className="gc-content">
