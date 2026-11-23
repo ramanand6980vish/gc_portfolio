@@ -44,102 +44,143 @@
 }
 
 
-/* =================================
-   MOBILE NAVBAR
-================================= */
+/* ==================================== */
 
+.global-logo-wrapper {
+    padding: 13px;
+    box-sizing: border-box;
+}
+
+
+
+/* =========================================
+   ALWAYS-VISIBLE RESPONSIVE NAVIGATION
+========================================= */
+
+.gc-nav {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.gc-nav .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    min-width: 0;
+}
+
+.gc-nav .nav-links button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+/* Hide the hamburger button if its old CSS still exists */
+.gc-nav .mobile-menu-btn {
+    display: none !important;
+}
+
+/* Tablet and mobile */
 @media screen and (max-width: 768px) {
-
-    .gc-header {
-        position: relative;
-        z-index: 9999;
-        overflow: visible;
-    }
+    /* .gc-nav {
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+    } */
 
     .gc-nav {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        position: relative;
-        overflow: visible;
-    }
-
-    /* Three-line / close button */
-
-    .mobile-menu-btn {
-        display: block !important;
-        flex-shrink: 0;
-
-        background: transparent !important;
-        border: none !important;
-
-        color: #193582 !important;
-        font-size: 28px !important;
-
-        padding: 5px 10px !important;
-        margin: 0;
-
-        cursor: pointer;
-        line-height: 1;
-    }
-
-    /* Menu is hidden initially */
-
-    .nav-links {
-        display: none !important;
-    }
-
-    /* Open menu horizontally beside the icon */
-
-    .nav-links.show-menu {
-        display: flex !important;
-        position: static;
-
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-
-        width: auto;
-        height: auto;
-        max-height: none;
-
-        gap: 2px;
-        padding: 0;
-        margin: 0;
-
-        background: transparent;
-        border: none;
-        box-shadow: none;
-
-        overflow: visible;
-    }
-
-    /* Horizontal menu buttons */
-
-    .nav-links button {
-        flex-shrink: 0;
-        width: auto;
-
-        padding: 8px 7px !important;
-
-        background: transparent !important;
-        border: none;
-
-        color: #193582 !important;
-
-        font-size: 12px;
-        white-space: nowrap;
-        text-align: center;
-    }
-
-    .nav-links button:hover,
-    .nav-links button.active {
-        color: #00aeef !important;
-        background: transparent !important;
-    }
-
+    display: flex;
+    flex: 1 1 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: visible;
 }
+
+.gc-nav .nav-links {
+    display: flex !important;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+    .gc-nav .nav-links {
+        display: flex !important;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 4px;
+        width: 100%;
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .gc-nav .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gc-nav .nav-links button {
+        flex: 0 0 auto;
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+}
+
+/* Very narrow phones */
+@media screen and (max-width: 400px) {
+    .gc-nav .nav-links button {
+        padding: 7px 8px;
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+/* //navbar scroll hide */
+
+.gc-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.25s ease;
+}
+
+.gc-header.navbar-visible {
+    transform: translateY(0);
+}
+
+.gc-header.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+@media (min-width: 769px) {
+    .gc-header,
+    .gc-header.navbar-visible,
+    .gc-header.navbar-hidden {
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
 
 
 /* =================================
