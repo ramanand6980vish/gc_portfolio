@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "../cssFiles/homenew.css";
 import adVideo from "../assets/gc_video_ad2.mp4";
 
@@ -10,16 +10,19 @@ import premPhoto from "../assets/team_member/prem.png";
 import ramanandPhoto from "../assets/team_member/ramanand.png";
 
 // logo import
-import adityaBirlaLogo from "../assets/client_logos/adityabirla_logo.png";
+import adityaBirlaLogo from "../assets/client_logos/ashtech_logo.png";
 import larsenToubroLogo from "../assets/client_logos/larsen_logo.png";
 import adaniLogo from "../assets/client_logos/adani_logo.png";
 import gammonLogo from "../assets/client_logos/gammon_logo.png";
 import hindalcoLogo from "../assets/client_logos/hindalco_logo.png";
 import hsclLogo from "../assets/client_logos/hscl_logo.png";
-import ultratechLogo from "../assets/client_logos/ultratech_logo.jpeg";
+import ultratechLogo from "../assets/client_logos/ultraTech_logo.png";
 import macmetLogo from "../assets/client_logos/macmet_logo.png";
 import relianceLogo from "../assets/client_logos/reliance_logo.png";
 import theIndureLogo from "../assets/client_logos/indure_logo.png";
+
+
+import ImageCarousel from "./ImageCarousel";
 
 const projects = [
     {
@@ -148,48 +151,48 @@ export default function HomeNew() {
     });
 
 
- const videoRef = useRef(null);
-const [isMuted, setIsMuted] = useState(true);
+    const videoRef = useRef(null);
+    const [isMuted, setIsMuted] = useState(true);
 
-const toggleMute = () => {
-    const video = videoRef.current;
-    if (!video) return;
+    const toggleMute = () => {
+        const video = videoRef.current;
+        if (!video) return;
 
-    video.muted = !video.muted;
-    setIsMuted(video.muted);
-};
-
-useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    // Start muted so browsers can allow autoplay
-    video.muted = true;
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    video.play().catch((error) => {
-                        if (error.name !== "NotAllowedError") {
-                            console.error("Video playback failed:", error);
-                        }
-                    });
-                } else {
-                    video.pause();
-                }
-            });
-        },
-        { threshold: 0.5 }
-    );
-
-    observer.observe(video);
-
-    return () => {
-        observer.disconnect();
-        video.pause();
+        video.muted = !video.muted;
+        setIsMuted(video.muted);
     };
-}, []);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        // Start muted so browsers can allow autoplay
+        video.muted = true;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        video.play().catch((error) => {
+                            if (error.name !== "NotAllowedError") {
+                                console.error("Video playback failed:", error);
+                            }
+                        });
+                    } else {
+                        video.pause();
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        observer.observe(video);
+
+        return () => {
+            observer.disconnect();
+            video.pause();
+        };
+    }, []);
     const [sent, setSent] = useState(false);
 
     const handleSubmit = (e) => {
@@ -429,145 +432,146 @@ useEffect(() => {
                 </div>
 
             </section>
-           <div className="company-ad-video-wrapper">
-    <video
-        ref={videoRef}
-        className="company-ad-video"
-        src={adVideo}
-        loop
-        muted={isMuted}
-        playsInline
-        controls={false}
-        disablePictureInPicture
-        disableRemotePlayback
-        preload="metadata"
-        onContextMenu={(e) => e.preventDefault()}
-    >
-        Your browser does not support HTML5 video.
-    </video>
+            <div className="company-ad-video-wrapper">
+                <video
+                    ref={videoRef}
+                    className="company-ad-video"
+                    src={adVideo}
+                    loop
+                    muted={isMuted}
+                    playsInline
+                    controls={false}
+                    disablePictureInPicture
+                    disableRemotePlayback
+                    preload="metadata"
+                    onContextMenu={(e) => e.preventDefault()}
+                >
+                    Your browser does not support HTML5 video.
+                </video>
 
-   <button
-    type="button"
-    className="company-ad-mute-btn"
-    onClick={toggleMute}
-    aria-label={isMuted ? "Unmute video" : "Mute video"}
-    title={isMuted ? "Unmute video" : "Mute video"}
->
-    {isMuted ? (
-        // Speaker with cross
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            focusable="false"
-        >
-            <path d="M11 5 6 9H3v6h3l5 4V5Z" />
-            <path d="m17 9 5 6m0-6-5 6" />
-        </svg>
-    ) : (
-        // Speaker with sound waves
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            focusable="false"
-        >
-            <path d="M11 5 6 9H3v6h3l5 4V5Z" />
-            <path d="M15.5 8.5a5 5 0 0 1 0 7" />
-            <path d="M19 5a10 10 0 0 1 0 14" />
-        </svg>
-    )}
-</button>
-</div>
-
-
-           {/* OUR MANAGEMENT TEAM */}
-<section className="management-section" id="management">
-    <div className="section-container">
-        <div className="section-heading">
-            <span className="section-tag">THE PEOPLE BEHIND OUR WORK</span>
-            <h2>Our Management Team</h2>
-            <p>
-                Our experienced management team brings together technical
-                expertise, engineering knowledge and leadership to deliver
-                quality construction solutions.
-            </p>
-        </div>
-
-        <div className="management-grid">
-            <div className="management-card">
-                <div className="management-avatar">
-                    <img src={manojPhoto}
-                        alt="Mr. Manoj Vishwakarma" />
-                </div>
-                <h3>Mr. Manoj Vishwakarma</h3>
-                <span className="management-role">Sales and Marketing Manager</span>
-                <div className="management-divider"></div>
-                <ul>
-                    <li>B.Tech (Mechanical)</li>
-                    <li>MBA</li>
-                    <li>Sales and Marketing Manager</li>
-                </ul>
+                <button
+                    type="button"
+                    className="company-ad-mute-btn"
+                    onClick={toggleMute}
+                    aria-label={isMuted ? "Unmute video" : "Mute video"}
+                    title={isMuted ? "Unmute video" : "Mute video"}
+                >
+                    {isMuted ? (
+                        // Speaker with cross
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                            focusable="false"
+                        >
+                            <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+                            <path d="m17 9 5 6m0-6-5 6" />
+                        </svg>
+                    ) : (
+                        // Speaker with sound waves
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                            focusable="false"
+                        >
+                            <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+                            <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+                            <path d="M19 5a10 10 0 0 1 0 14" />
+                        </svg>
+                    )}
+                </button>
             </div>
 
-            <div className="management-card">
-                <div className="management-avatar">
-                    <img src={santoshPhoto}
-                        alt="Mr. Santosh Vishwakarma" />
-                </div>
-                <h3>Mr. Santosh Vishwakarma</h3>
-                <span className="management-role">Mechanical Engineer</span>
-                <div className="management-divider"></div>
-                <ul>
-                    <li>B.Tech (Mechanical)</li>
-                    <li>Mechanical Engineer</li>
-                </ul>
-            </div>
 
-            <div className="management-card">
-                <div className="management-avatar">
-                    <img src={arvindPhoto}
-                        alt="Mr. Arvind Vishwakarma" />
-                </div>
-                <h3>Mr. Arvind Vishwakarma</h3>
-                <span className="management-role">Mechanical Engineer</span>
-                <div className="management-divider"></div>
-                <ul>
-                    <li>Diploma (Production)</li>
-                    <li>Mechanical Engineer</li>
-                </ul>
-            </div>
+            {/* OUR MANAGEMENT TEAM */}
+            <section className="management-section" id="management">
+                <div className="section-container">
+                    <div className="section-heading">
+                        <span className="section-tag">THE PEOPLE BEHIND OUR WORK</span>
+                        <h2>Our Management Team</h2>
+                        <p>
+                            Our experienced management team brings together technical
+                            expertise, engineering knowledge and leadership to deliver
+                            quality construction solutions.
+                        </p>
+                    </div>
 
-            <div className="management-card">
-                <div className="management-avatar">
-                    <img src={premPhoto}
-                        alt="Mr. Prem Sagar" />
-                </div>
-                <h3>Mr. Prem Sagar</h3>
-                <span className="management-role">IT Engineer</span>
-                <div className="management-divider"></div>
-                <ul>
-                    <li>B.Tech, Kolkata (CSE)</li>
-                    <li>Software Engineer</li>
-                    <li>Lead Engineer</li>
-                </ul>
-            </div>
+                    <div className="management-grid">
+                        <div className="management-card">
+                            <div className="management-avatar">
+                                <img src={manojPhoto}
+                                    alt="Mr. Manoj Vishwakarma" />
+                            </div>
+                            <h3>Mr. Manoj Vishwakarma</h3>
+                            <span className="management-role">Sales and Marketing Manager</span>
+                            <div className="management-divider"></div>
+                            <ul>
+                                <li>B.Tech (Mechanical)</li>
+                                <li>MBA</li>
+                                <li>Sales and Marketing Manager</li>
+                            </ul>
+                        </div>
 
-            <div className="management-card">
-                <div className="management-avatar">
-                    <img src={ramanandPhoto}
-                        alt="Mr. Ramanand Vishwakarma" />
+                        <div className="management-card">
+                            <div className="management-avatar">
+                                <img src={santoshPhoto}
+                                    alt="Mr. Santosh Vishwakarma" />
+                            </div>
+                            <h3>Mr. Santosh Vishwakarma</h3>
+                            <span className="management-role">Mechanical Engineer</span>
+                            <div className="management-divider"></div>
+                            <ul>
+                                <li>B.Tech (Mechanical)</li>
+                                <li>Mechanical Engineer</li>
+                            </ul>
+                        </div>
+
+                        <div className="management-card">
+                            <div className="management-avatar">
+                                <img src={arvindPhoto}
+                                    alt="Mr. Arvind Vishwakarma" />
+                            </div>
+                            <h3>Mr. Arvind Vishwakarma</h3>
+                            <span className="management-role">Mechanical Engineer</span>
+                            <div className="management-divider"></div>
+                            <ul>
+                                <li>Diploma (Production)</li>
+                                <li>Mechanical Engineer</li>
+                            </ul>
+                        </div>
+
+                        <div className="management-card">
+                            <div className="management-avatar">
+                                <img src={premPhoto}
+                                    alt="Mr. Prem Sagar" />
+                            </div>
+                            <h3>Mr. Prem Sagar</h3>
+                            <span className="management-role">IT Engineer</span>
+                            <div className="management-divider"></div>
+                            <ul>
+                                <li>B.Tech (CSE)</li>
+                                <li>Manager</li>
+                                <li>Software Engineer</li>
+                                
+                            </ul>
+                        </div>
+
+                        <div className="management-card">
+                            <div className="management-avatar">
+                                <img src={ramanandPhoto}
+                                    alt="Mr. Ramanand Vishwakarma" />
+                            </div>
+                            <h3>Mr. Ramanand Vishwakarma</h3>
+                            <span className="management-role">Human Resource</span>
+                            <div className="management-divider"></div>
+                            <ul>
+                                <li>MBA (HR) </li>
+                                
+                                <li>ADMINISTRATION</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <h3>Mr. Ramanand Vishwakarma</h3>
-                <span className="management-role">IT Engineer</span>
-                <div className="management-divider"></div>
-                <ul>
-                    <li>MCA, Punjab (CSE)</li>
-                    <li>Software Engineer</li>
-                    <li>Full Stack Developer</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
 
             {/* COMMITMENT TO SAFETY & EXCELLENCE */}
             <section className="safety-section" id="safety">
@@ -654,11 +658,6 @@ useEffect(() => {
                     </div>
                 </div>
             </section>
-
-
-
-
-
 
 
 
@@ -765,28 +764,30 @@ useEffect(() => {
 
             </section>
 
+            <ImageCarousel />
 
-          {/* CLIENTS */}
-<section className="section soft-section">
-    <SectionTitle>
-        Clients We Proudly Serve
-    </SectionTitle>
 
-    <div className="client-grid">
-        {clients.map((client, i) => (
-            <div
-                className={`client-logo client-${i}`}
-                key={client.name}
-            >
-                <img
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    loading="lazy"
-                />
-            </div>
-        ))}
-    </div>
-</section>
+            {/* CLIENTS */}
+            <section className="section soft-section">
+                <SectionTitle>
+                    Clients We Proudly Serve
+                </SectionTitle>
+
+                <div className="client-grid">
+                    {clients.map((client, i) => (
+                        <div
+                            className={`client-logo client-${i}`}
+                            key={client.name}
+                        >
+                            <img
+                                src={client.logo}
+                                alt={`${client.name} logo`}
+                                loading="lazy"
+                            />
+                        </div>
+                    ))}
+                </div>
+            </section>
 
 
             {/* CERTIFICATIONS */}
@@ -840,7 +841,7 @@ useEffect(() => {
                         <span className="portfolio-section-tag">
                             COMPANY DETAILS
                         </span>
-                        <h2>Essential Company Information</h2>
+                        {/* <h2>Essential Company Information</h2> */}
                         <p>
                             Our official registration, statutory details and
                             business credentials.
@@ -936,7 +937,7 @@ useEffect(() => {
                     <div className="financial-heading">
                         <span className="portfolio-section-tag">
                         </span>
-                        <h2 style={{ color: 'var(--portfolio-primary)' }}>Financial Details for Transaction</h2>
+                        {/* <h2 >Financial Details for Transaction</h2> */}
                         <p>
                             Official banking details of M/s Global Construction.
                         </p>
@@ -1038,11 +1039,11 @@ useEffect(() => {
                                 <span>☎</span>
                                 <p>
                                     <small>Contact</small>
-                                    <a href="tel:+916201665195">
-                                        +91 6201665195
-                                    </a>
                                     <a href="tel:+919451483275">
                                         +91 9451483275
+                                    </a>
+                                    <a href="tel:+916201665195">
+                                        +91 6201665195
                                     </a>
                                 </p>
                             </div>
@@ -1161,7 +1162,7 @@ useEffect(() => {
             </section>
 
 
-          
+
         </main>
     );
 }
