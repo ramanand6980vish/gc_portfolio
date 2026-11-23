@@ -893,3 +893,405 @@
         scroll-behavior: auto !important;
     }
 }
+
+
+/* COMPANY DOCUMENTS */
+.company-documents {
+    padding: 72px 6%;
+    background: #f4f7f9;
+}
+
+.documents-heading {
+    max-width: 680px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.documents-eyebrow {
+    display: block;
+    margin-bottom: 10px;
+    color: #75b94c;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.documents-heading h2 {
+    margin: 0;
+    color: #073447;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.documents-heading p {
+    margin: 12px 0 0;
+    color: #62747d;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.document-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 22px;
+    background: #fff;
+    border: 1px solid #e1e8ec;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(4, 29, 39, 0.045);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.document-card:hover {
+    transform: translateY(-4px);
+    border-color: #c4d8e0;
+    box-shadow: 0 12px 28px rgba(4, 29, 39, 0.09);
+}
+
+.document-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.document-pdf-icon {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border-radius: 12px;
+    background: #edf5f7;
+}
+
+.document-pdf-icon svg {
+    width: 25px;
+    height: 25px;
+    fill: none;
+    stroke: #0a5268;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.document-number {
+    color: #9aabb3;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.document-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.document-card-info h3 {
+    margin: 0;
+    color: #073447;
+    font-size: 17px;
+    font-weight: 750;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.document-card-info p {
+    margin: 7px 0 20px;
+    color: #82919a;
+    font-size: 13px;
+}
+
+.document-card-actions {
+    display: flex;
+    gap: 9px;
+    margin-top: auto;
+}
+
+.document-view-button,
+.document-download-button {
+    display: inline-flex;
+    min-width: 0;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.document-view-button {
+    flex: 1;
+    background: #073447;
+    color: #fff;
+}
+
+.document-view-button:hover {
+    background: #0b5067;
+}
+
+.document-download-button {
+    flex: 1;
+    background: #fff;
+    border-color: #d6e1e6;
+    color: #073447;
+}
+
+.document-download-button:hover {
+    background: #edf5f7;
+    border-color: #a9c4ce;
+}
+
+.document-download-button span {
+    font-size: 17px;
+    line-height: 1;
+}
+
+/* PDF PREVIEW MODAL */
+.document-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(3, 20, 28, 0.78);
+    backdrop-filter: blur(5px);
+}
+
+.document-modal {
+    display: flex;
+    width: min(100%, 1000px);
+    max-height: 92vh;
+    flex-direction: column;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+}
+
+.document-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5ebee;
+}
+
+.document-modal-header span {
+    color: #75a94f;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.document-modal-header h3 {
+    margin: 4px 0 0;
+    color: #073447;
+    font-size: 17px;
+}
+
+.document-modal-close {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    place-items: center;
+    border: 1px solid #dce5e9;
+    border-radius: 9px;
+    background: #fff;
+    color: #29434e;
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.document-modal-close:hover {
+    background: #edf5f7;
+}
+
+.document-modal-frame {
+    display: block;
+    width: 100%;
+    min-height: 300px;
+    flex: 1;
+    border: 0;
+    background: #eef2f4;
+}
+
+.document-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 20px;
+    border-top: 1px solid #e5ebee;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+    .documents-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .company-documents {
+        padding: 48px 16px;
+    }
+
+    .documents-heading {
+        margin-bottom: 24px;
+    }
+
+    .documents-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .document-card {
+        padding: 18px;
+    }
+
+    .document-card-top {
+        margin-bottom: 16px;
+    }
+
+    .document-card-info p {
+        margin-bottom: 16px;
+    }
+
+    .document-modal-backdrop {
+        padding: 10px;
+    }
+
+    .document-modal {
+        max-height: 94vh;
+        border-radius: 10px;
+    }
+
+    .document-modal-header {
+        padding: 13px 14px;
+    }
+
+    .document-modal-frame {
+        min-height: 240px;
+    }
+
+    .document-modal-footer {
+        padding: 10px 14px;
+    }
+}
+
+/* =====================================================
+   FULL-SCREEN COMPANY DOCUMENT PDF PREVIEW
+   Add this at the END of companyDocuments.css
+===================================================== */
+
+.document-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px;
+    box-sizing: border-box;
+
+    background: rgba(3, 15, 20, 0.78);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.document-modal {
+    width: 100%;
+    max-width: 1600px;
+
+    height: calc(100vh - 24px);
+    height: calc(100dvh - 24px);
+    max-height: calc(100dvh - 24px);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    background: #ffffff;
+    border-radius: 16px;
+}
+
+/* Keep the title and close button visible */
+.document-modal-header {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+    padding: 18px 24px;
+}
+
+/* Let the PDF viewer fill the available modal height */
+.document-modal-frame {
+    display: block;
+
+    flex: 1 1 auto;
+    min-height: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    background: #2b2b2b;
+}
+
+/* Keep the download button visible at the bottom */
+.document-modal-footer {
+    flex: 0 0 auto;
+    padding: 12px 24px 16px;
+    background: #ffffff;
+}
+
+/* Mobile and narrow screens */
+@media (max-width: 600px) {
+    .document-modal-backdrop {
+        padding: 6px;
+    }
+
+    .document-modal {
+        height: calc(100vh - 12px);
+        height: calc(100dvh - 12px);
+        max-height: calc(100dvh - 12px);
+        border-radius: 10px;
+    }
+
+    .document-modal-header {
+        padding: 12px 14px;
+    }
+
+    .document-modal-footer {
+        padding: 8px 12px 12px;
+    }
+}
