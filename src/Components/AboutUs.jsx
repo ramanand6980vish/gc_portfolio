@@ -284,7 +284,7 @@ function AboutUs() {
                     </tr>
                     <tr>
                       <td>Contact Numbers</td>
-                      <td>+91 6201665195 / 9451483275</td>
+                      <td>+91 9451483275 / 6201665195 </td>
                     </tr>
                     <tr>
                       <td>Nationality</td>
